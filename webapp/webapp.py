@@ -19,15 +19,7 @@ transform = transforms.Compose([
     transforms.Normalize((0.5,), (0.5,))
 ])
 
-# def encode_targets():
-#   # Encode images
-#   lbl_enc = LabelEncoder()
-#   # lbl_enc.fit(targets_flat)
-#   # targets_enc = [lbl_enc.transform(x) for x in targets]
-#   # targets_enc = np.array(targets_enc) + 1 # transform to np and remove 0 index
-#
-#   return lbl_enc
-
+# Encode images
 lbl_enc = LabelEncoder()
 
 def decode_predictions(preds, encoder):
@@ -52,7 +44,6 @@ def predict_function(model, data):
     model.eval()
     fin_preds = []
     with torch.no_grad():
-        # for data in data_loader:
         for k, v in data.items():
             data[k] = v.to(DEVICE)
         batch_preds, _ = model(**data)
@@ -81,14 +72,17 @@ def clean_decoded_predictions(unclean_predictions):
 def predict_captcha(model, image_path):
     plt.figure(figsize=(15, 5))
     image = mpimg.imread(image_path[0])
-    # target = image_path[0].split("/")[-1].split(".")[0]
     plt.title(image_path[0].split("/")[-1])
     plt.imshow(image)
 
-    valid_preds = predict_function(model, image)
+    # Load the image and transform it
+    img = Image.open(image_path[0])
+    img = transform(img)
+
+    valid_preds = predict_function(model, {"image": img.unsqueeze(0)})
     current_preds = decode_predictions(valid_preds, lbl_enc)
     preds = clean_decoded_predictions(current_preds[0])
-    # success = True if preds == target else False
+
     return preds
 
 # Define the Streamlit app
@@ -101,15 +95,9 @@ def app():
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
     if uploaded_file is not None:
-        # Load the image and transform it
-        img = Image.open(uploaded_file)
-        img = transform(img)
-
         # Make a prediction with the model
-        with torch.no_grad():
-            prediction = predict_captcha(model, img.unsqueeze(0))
+        prediction = predict_captcha(model, [uploaded_file])
 
         # Get the predicted text and display it
         captcha_text = "".join([chr(int(x)) for x in prediction])
         st.write(f"The captcha text is: {captcha_text}")
-
