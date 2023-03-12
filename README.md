@@ -8,6 +8,12 @@
 
 Text-based CAPTCHA has become one of the most popular methods for preventing bot attacks. With the rapid development of deep learning techniques, many new methods to break text-based CAPTCHAs have been developed in recent years. However, a holistic and uniform investigation and comparison of these attacks’ effects is lacking due to inconsistent choices of model structures, training datasets, and evaluation metrics.
 
+### Types of Text-based Captcha:
+<img src="img1.png">
+
+### Some methods of breaking them:
+<img src="img2.png">
+
 ### Dataset sample images: 
 <img src="sample-images/00AQ59V0x5.jpg">      
 Label : 00AQ59V0x5
@@ -22,7 +28,7 @@ The final notebook mentions the working of the model as well as the reduction in
 
 ### CTC Loss defintion:
 A Connectionist Temporal Classification Loss, or CTC Loss, is designed for tasks where we need alignment between sequences, but where that alignment is difficult - e.g. aligning each character to its location in an audio file. It calculates a loss between a continuous (unsegmented) time series and a target sequence. It does this by summing over the probability of possible alignments of input to target, producing a loss value which is differentiable with respect to each input node.
-
+<img src="ctc1.png">
 
 ### CTC Loss on the dataset:
 <img src="Loss.png">
