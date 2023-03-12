@@ -8,6 +8,9 @@
 
 Text-based CAPTCHA has become one of the most popular methods for preventing bot attacks. With the rapid development of deep learning techniques, many new methods to break text-based CAPTCHAs have been developed in recent years. However, a holistic and uniform investigation and comparison of these attacks’ effects is lacking due to inconsistent choices of model structures, training datasets, and evaluation metrics.
 
+### Web-app file as app.py: [app.py](https://github.com/Pushkar1853/Captcha-Breaker-project/blob/1bd8969b3592a959fa0d69a06e13bfd84ffaf98e/webapp/webapp.py)
+### Final notebook : [notebook](https://github.com/Pushkar1853/Captcha-Breaker-project/blob/1bd8969b3592a959fa0d69a06e13bfd84ffaf98e/notebook/captcha-recognition-project.ipynb)
+
 <b>Note : </b>
 The final notebook mentions the working of the model as well as the reduction in CTC loss.
 
