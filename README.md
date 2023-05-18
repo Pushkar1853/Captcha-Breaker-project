@@ -22,6 +22,7 @@ Label : 0A3A28oY8H
 
 ### Web-app file as app.py: [app.py](https://github.com/Pushkar1853/Captcha-Breaker-project/blob/1bd8969b3592a959fa0d69a06e13bfd84ffaf98e/webapp/webapp.py)
 ### Final notebook : [notebook](https://github.com/Pushkar1853/Captcha-Breaker-project/blob/1bd8969b3592a959fa0d69a06e13bfd84ffaf98e/notebook/captcha-recognition-project.ipynb)
+### Check out scripts and source codes below: [src](https://github.com/Pushkar1853/Captcha-Breaker-project/tree/791359bf94bb2c7694e06cd86485671c9d5d5968/src) and [scripts](https://github.com/Pushkar1853/Captcha-Breaker-project/tree/791359bf94bb2c7694e06cd86485671c9d5d5968/scripts)
 
 <b>Note : </b>
 The final notebook mentions the working of the model as well as the reduction in CTC loss.
